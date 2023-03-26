@@ -6,15 +6,15 @@
   
   <title>moondowna-first-blog | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="#vue##1. һ�����ڴ�û�����Ľ���ʽjs���##2. �ص㣺  ���������ģʽ����ߴ��븴���ʣ�����ά�� ����ʽ���룬��߿���Ч��  ����dom+diff�㷨������dom�ڵ� diff�㷨��ֻ��ƽ���Ƚϣ�ͨ���Ƚ�keyֵ����Keyֵ��ͬ�ȽϺ�������ݣ�����ͬ�����±Ƚ�  ##3. ����–�">
+  <meta name="description" content="#vue##1. 一套用于搭建用户界面的渐进式js框架##2. 特点：  采用组件化模式，提高代码复用率，更好维护 声明式编码，提高开发效率  虚拟dom+diff算法，复用dom节点 diff算法：只能平级比较，通过比较key值，若Key值相同比较后面的内容，若不同则向下比较  ##3. 属性–容器与vue实例一一对应  el：用于指定当前为特定容器服务的vue实例，value为字符串 或者 d">
 <meta property="og:type" content="article">
 <meta property="og:title" content="moondowna-first-blog">
 <meta property="og:url" content="http://example.com/2023/03/27/moondowna-first-blog/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#vue##1. һ�����ڴ�û�����Ľ���ʽjs���##2. �ص㣺  ���������ģʽ����ߴ��븴���ʣ�����ά�� ����ʽ���룬��߿���Ч��  ����dom+diff�㷨������dom�ڵ� diff�㷨��ֻ��ƽ���Ƚϣ�ͨ���Ƚ�keyֵ����Keyֵ��ͬ�ȽϺ�������ݣ�����ͬ�����±Ƚ�  ##3. ����–�">
+<meta property="og:description" content="#vue##1. 一套用于搭建用户界面的渐进式js框架##2. 特点：  采用组件化模式，提高代码复用率，更好维护 声明式编码，提高开发效率  虚拟dom+diff算法，复用dom节点 diff算法：只能平级比较，通过比较key值，若Key值相同比较后面的内容，若不同则向下比较  ##3. 属性–容器与vue实例一一对应  el：用于指定当前为特定容器服务的vue实例，value为字符串 或者 d">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-26T16:07:03.000Z">
-<meta property="article:modified_time" content="2023-03-26T16:23:59.182Z">
+<meta property="article:modified_time" content="2023-03-26T16:35:46.052Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -95,184 +95,184 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>#vue<br>##1. һ�����ڴ�û�����Ľ���ʽjs���<br>##2. �ص㣺</p>
+        <p>#vue<br>##1. 一套用于搭建用户界面的渐进式js框架<br>##2. 特点：</p>
 <ul>
-<li>���������ģʽ����ߴ��븴���ʣ�����ά��</li>
-<li>����ʽ���룬��߿���Ч�� </li>
-<li>����dom+diff�㷨������dom�ڵ�</li>
-<li>diff�㷨��ֻ��ƽ���Ƚϣ�ͨ���Ƚ�keyֵ����Keyֵ��ͬ�ȽϺ�������ݣ�����ͬ�����±Ƚ�</li>
+<li>采用组件化模式，提高代码复用率，更好维护</li>
+<li>声明式编码，提高开发效率 </li>
+<li>虚拟dom+diff算法，复用dom节点</li>
+<li>diff算法：只能平级比较，通过比较key值，若Key值相同比较后面的内容，若不同则向下比较</li>
 </ul>
-<p>##3. ����–������vueʵ��һһ��Ӧ</p>
+<p>##3. 属性–容器与vue实例一一对应</p>
 <ul>
-<li>el������ָ����ǰΪ�ض����������vueʵ����valueΪ�ַ��� ���� document.getElement…Ҳ����</li>
-<li>v.$mountָ������<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>( )=&gt;&#123;</span><br><span class="line">v.$mount(<span class="string">&#x27;#root&#x27;</span>),<span class="number">1000</span>&#125;<span class="string">`//��1���Ϊ id��root��������v</span></span><br></pre></td></tr></table></figure></li>
-<li>data��дһ���������ڴ洢���ݣ���el��ָ��������ȥʹ��<ul>
-<li><p>��ֵ�﷨��{ { key } }��key����Ϊjs��ı���ʽ�����з���ֵ a��a+b��fn(2)..��<br>��������ָ����ǩ������,���Զ�ȡdata����b</p>
+<li>el：用于指定当前为特定容器服务的vue实例，value为字符串 或者 document.getElement…也可以</li>
+<li>v.$mount指定容器<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>( )=&gt;&#123;</span><br><span class="line">v.$mount(<span class="string">&#x27;#root&#x27;</span>),<span class="number">1000</span>&#125;<span class="string">`//在1秒后为 id是root的容器绑定v</span></span><br></pre></td></tr></table></figure></li>
+<li>data：写一个对象，用于存储数据，供el所指定的容器去使用<ul>
+<li><p>插值语法：{ { key } }，key必须为js里的表达式（会有返回值 a、a+b、fn(2)..）<br>往往用于指定标签体内容,可以读取data属性b</p>
 </li>
-<li><p>ָ���﷨��</p>
+<li><p>指令语法：</p>
 <ul>
-<li>v-bind��<br><code>&lt;a v-bind:herf=&#39; url &#39;&gt;</code> ִ�б���ʽ��������󶨸�herf<br>��д�� v-bind &#x3D;&#x3D;&#x3D;&#x3D;  :<br><code>&lt;a : herf=&#39; url &#39;&gt;</code><br>���ڽ�����ǩ����ǩ���ԡ����ݡ����¼�…��</li>
+<li>v-bind绑定<br><code>&lt;a v-bind:herf=&#39; url &#39;&gt;</code> 执行表达式，将结果绑定给herf<br>简写： v-bind &#x3D;&#x3D;&#x3D;&#x3D;  :<br><code>&lt;a : herf=&#39; url &#39;&gt;</code><br>用于解析标签（标签属性、内容、绑定事件…）</li>
 </ul>
 </li>
-<li><p>dataд��–&gt;����ʽ&amp;����ʽ��</p>
+<li><p>data写法–&gt;对象式&amp;函数式：</p>
 <ul>
-<li>����ʽ��<br><code>data:&#123; name:ah&#125;</code></li>
-<li>����ʽ��<br>&#96;data:function(){</li>
+<li>对象式：<br><code>data:&#123; name:ah&#125;</code></li>
+<li>函数式：<br>&#96;data:function(){</li>
 </ul>
 <p>return {name:ah }</p>
 </li>
 </ul>
-<p>} &#96; �˴�����<strong>��ͷ��������thisָ��window</strong>����ͨʵ������ָ��ʵ������</p>
+<p>} &#96; 此处运用<strong>箭头函数，则this指向window</strong>，普通实例函数指向实例对象</p>
 </li>
 </ul>
-<p>##4. �������˫��󶨣�</p>
+<p>##4. 单向绑定与双向绑定：</p>
 <ol>
-<li>v-bind�����:����ֻ�ܴ�data����ҳ��</li>
-<li>v-model˫��󶨣��ܴ�data����ҳ�棬Ҳ�ܴ�ҳ������data<br>  ֻ��Ӧ���ڱ�����Ԫ�أ�������Ԫ�أ�input��select��<br>  v-model:value���Լ�дΪv-model</li>
+<li>v-bind单向绑定:数据只能从data流向页面</li>
+<li>v-model双向绑定：能从data流向页面，也能从页面流向data<br>  只能应用于表单类元素（输入类元素，input，select）<br>  v-model:value可以简写为v-model</li>
 </ol>
-<p>##5. mvvmģ�ͣ�</p>
+<p>##5. mvvm模型：</p>
 <ul>
-<li>m:  mode : data�е�����</li>
-<li>V:   view :  ģ�����</li>
-<li>Vm:  ��ͼģ��</li>
-<li>data�����е����Զ�������vm�б��棬vm����һЩvueԭ���ϵ����ԣ���vueģ���п���ֱ��ʹ��</li>
+<li>m:  mode : data中的数据</li>
+<li>V:   view :  模板代码</li>
+<li>Vm:  视图模型</li>
+<li>data中所有的属性都出现在vm中保存，vm还有一些vue原型上的属性，在vue模板中可以直接使用</li>
 </ul>
-<p>##6. ���ݴ�����setter&amp;getter</p>
+<p>##6. 数据代理：setter&amp;getter</p>
 <ul>
-<li>���ݴ�����ͨ��vm����������data���������ԵĶ�д����<br>vm._data&#x3D;&#x3D;</li>
-<li>�ô��������</li>
-<li>ԭ����ͨ��Object.definePropert( )��data�����������������ӵ�vm�ϡ�getterΪÿһ�����ӵ�vm�ϵ�����ָ��һ��getter&#x2F;setter</li>
+<li>数据代理：通过vm对象来代理data对象中属性的读写操作<br>vm._data&#x3D;&#x3D;</li>
+<li>好处：更简洁</li>
+<li>原理：通过Object.definePropert( )把data对象中所有属性添加到vm上。getter为每一个添加到vm上的属性指定一个getter&#x2F;setter</li>
 </ul>
-<p>##7. �¼�</p>
+<p>##7. 事件</p>
 <ol>
-<li>v-on:click &#x3D; ‘ �¼��� ‘���¼�д��vue��methods�����У����ջ���vm��</li>
-<li>@xxx ��xxxҲ������һЩ�򵥵�ִ����䡣                     </li>
-<li>methods�����õĺ�������Ҫ�ü�ͷ����������this�Ͳ���vm��</li>
-<li>��д�� @click &#x3D; ‘ ������ ‘</li>
-<li>�������ݣ��ں�������������С����<br><code>@click = &#39; showInfo ($event,6) &#39; methods:&#123;  showInfo ( event , number )  &#125;</code><br> ����eventĬ�Ͼ��� –&gt; <code>@click=&#39;xxx&#39;  == @click=&#39;xxx($event)&#39;</code></li>
-<li>�¼����η���<br>* .prevent  ��ֹĬ���¼� &#x3D;&#x3D;  e.prenventDefult( )<br>* .stop  ��ֹ�¼�ð��   &#x3D;&#x3D;  e.stoppp  �Ȳ����ð��<br>* .once �¼�ֻ����һ��<br>* .capture  ��ʹ���¼��Ĳ���ģʽ<br>* .self  ֻ��e.target�ǵ�ǰ����Ԫ�زŴ����¼�<br>* .passive  �¼���Ĭ����Ϊ����ִ�У�����ȴ��¼��ص�ִ�����</li>
-<li>�����¼��� <blockquote>
-<p>�س� &#x3D;&gt; enter<br> ɾ�� &#x3D;&gt; delete<br> �˳� &#x3D;&gt; esc<br> �ո� &#x3D;&gt; spcae<br> ���� &#x3D;&gt; tab<br> �������� &#x3D;&gt; up down left right<br>vue.config.keycodes�Զ������</p>
+<li>v-on:click &#x3D; ‘ 事件名 ‘，事件写在vue的methods对象中，最终会在vm上</li>
+<li>@xxx ，xxx也可以是一些简单的执行语句。                     </li>
+<li>methods中配置的函数，不要用箭头函数，否则this就不是vm了</li>
+<li>简写： @click &#x3D; ‘ 函数名 ‘</li>
+<li>参数传递：在函数名后面添加小括号<br><code>@click = &#39; showInfo ($event,6) &#39; methods:&#123;  showInfo ( event , number )  &#125;</code><br> 其中event默认就有 –&gt; <code>@click=&#39;xxx&#39;  == @click=&#39;xxx($event)&#39;</code></li>
+<li>事件修饰符：<br>* .prevent  阻止默认事件 &#x3D;&#x3D;  e.prenventDefult( )<br>* .stop  阻止事件冒泡   &#x3D;&#x3D;  e.stoppp  先捕获后冒泡<br>* .once 事件只触发一次<br>* .capture  先使用事件的捕获模式<br>* .self  只有e.target是当前操作元素才触发事件<br>* .passive  事件的默认行为立即执行，无需等待事件回调执行完毕</li>
+<li>键盘事件： <blockquote>
+<p>回车 &#x3D;&gt; enter<br> 删除 &#x3D;&gt; delete<br> 退出 &#x3D;&gt; esc<br> 空格 &#x3D;&gt; spcae<br> 换行 &#x3D;&gt; tab<br> 上下左右 &#x3D;&gt; up down left right<br>vue.config.keycodes自定义键名</p>
 </blockquote>
 </li>
 </ol>
-<p>##8. ����ָ��</p>
+<p>##8. 常用指令</p>
 <ol>
-<li><em>v-text</em>:���ñ�ǩ������–&gt;���ݰ�<br>Ĭ��д�����滻ȫ�����ݣ�ʹ�ò�ֵ����ʽ{}�����滻ָ�����ݣ�<br>ֻ��������ı�</li>
-<li><em>v-html</em>������Ԫ�ص�innerHtml–&gt;���ݰ�<br>����ʶ���ǩ</li>
-<li><em>v-on</em>:ΪԪ�ذ��¼�����дΪ@ –&gt;�¼���<br>�󶨷���������methods�У�д��data��Ҳ��ʵ�֣�mvvm��<br>�����ڲ�ͨ��this������data�е�����</li>
-<li><em>v-show</em>:���ݱ���ʽ������л�Ԫ�ص���ʾ״̬<br>Ӧ���ڹ�棬���ֲ�<br><strong>ԭ����display:none</strong></li>
-<li><em>v-if</em>:���ݱ���ʽ������л�Ԫ�ص���ʾ״̬<br>  �����ֵΪtrue�������dom������ʾԪ�أ�Ϊfalse���Ƴ�������Ԫ��<br>  <strong>ԭ����ֱ�Ӳ���dom���������ܽϴ�</strong></li>
-<li><em>v-bind</em>:����Ԫ�ص�����(src.title,class) ��дΪ :<br><code>&lt;img :src=&#39; &#39;  :class = &#123; active:isActive &#125; &gt;</code></li>
-<li><em>v-for</em>:�������������б��ṹ��<br> <code> &lt;li v-for=&#39; ( item,index) in arr :key=&quot;index&quot;&gt;</code><br>  item:ÿ��  index������ֵ  arr:���������顢�����ַ�����ָ������<br>  item��index���Խ������ָ��</li>
+<li><em>v-text</em>:设置标签的内容–&gt;内容绑定<br>默认写法会替换全部内容（使用插值表达式{ }可以替换指定内容）<br>只会解析成文本</li>
+<li><em>v-html</em>：设置元素的innerHtml–&gt;内容绑定<br>可以识别标签</li>
+<li><em>v-on</em>:为元素绑定事件，简写为@ –&gt;事件绑定<br>绑定方法存在于methods中（写在data中也能实现，mvvm）<br>方法内部通过this访问在data中的数据</li>
+<li><em>v-show</em>:根据表达式的真假切换元素的显示状态<br>应用于广告，遮罩层<br><strong>原理：display:none</strong></li>
+<li><em>v-if</em>:根据表达式的真假切换元素的显示状态<br>  里面的值为true则存在于dom树中显示元素，为false则移除且隐藏元素<br>  <strong>原理：直接操作dom，消耗性能较大</strong></li>
+<li><em>v-bind</em>:设置元素的属性(src.title,class) 简写为 :<br><code>&lt;img :src=&#39; &#39;  :class = &#123; active:isActive &#125; &gt;</code></li>
+<li><em>v-for</em>:根据数据生成列表结构：<br> <code> &lt;li v-for=&#39; ( item,index) in arr :key=&quot;index&quot;&gt;</code><br>  item:每项  index：索引值  arr:可以是数组、对象、字符串、指定次数<br>  item和index可以结合其他指令</li>
 </ol>
-<p>##9. �������ԣ�computed������  �����з���ֵ</p>
+<p>##9. 计算属性：computed对象中  必须有返回值</p>
 <ol>
-<li>����:Ҫ�õ����Բ����ڣ�ͨ���������Լ������</li>
-<li>ԭ��������objec.defineproperty�ṩ��getter��setter</li>
-<li>get������д �Ƕ���<br>ִ�У������ζ�ȡ���ݻ����������ݷ����ı�ʱ</li>
-<li>set:���Բ���д �Ƕ���<br>  ִ�У���������Ҫ���޸ģ�д��set����Ӧ�޸�</li>
-<li>�ŵ㣺��methods��ȣ��ڲ��л�����ƣ�Ч�ʸ��ߣ����Է��㡣</li>
-<li>��д����ֻ��getû��setʱ����ʡ��Ϊ���������ʲ��Ǻ�����<br><code>fullname()&#123; &#125;;</code></li>
+<li>定义:要用的属性不存在，通过已有属性计算得来</li>
+<li>原理：借助objec.defineproperty提供的getter和setter</li>
+<li>get：必须写 是对象<br>执行：当初次读取数据或依赖的数据发生改变时</li>
+<li>set:可以不用写 是对象<br>  执行：计算属性要被修改，写在set里响应修改</li>
+<li>优点：与methods相比，内部有缓存机制，效率更高，调试方便。</li>
+<li>简写：当只有get没有set时，可省略为函数（本质不是函数）<br><code>fullname()&#123; &#125;;</code></li>
 </ol>
-<p>##10. �������� watch</p>
+<p>##10. 监视属性 watch</p>
 <ol>
-<li>�����ӵ����Ա仯ʱ���ص������Զ�����</li>
-<li>��д��ʽ��<br>watch:{ }<br>���� <code>vm.$watch ( &#39;key&#39; ,&#123;  &#125; )</code></li>
-<li>�ص�������<blockquote>
-<p>handler( newvalue,oldvalue)<br>����������ֵ�����ı�ʱ����<br>Immediate: Ĭ��Ϊfalse ��ʼ��ʱĬ��handler��������</p>
+<li>当监视的属性变化时，回调函数自动调用</li>
+<li>书写方式：<br>watch:{ }<br>或者 <code>vm.$watch ( &#39;key&#39; ,&#123;  &#125; )</code></li>
+<li>回调函数：<blockquote>
+<p>handler( newvalue,oldvalue)<br>当检测的属性值发生改变时调用<br>Immediate: 默认为false 初始化时默认handler不被调用</p>
 </blockquote>
 </li>
-<li>��ȼ��ӣ�<blockquote>
-<p>���Ӷ༶�ṹ��ĳ�����Եı仯��  <code>&quot; number.a &quot;</code><br>���Ӷ༶�ṹ���������Եı仯��<code>Deep: true</code></p>
+<li>深度监视：<blockquote>
+<p>监视多级结构中某个属性的变化：  <code>&quot; number.a &quot;</code><br>监视多级结构中所有属性的变化：<code>Deep: true</code></p>
 </blockquote>
 </li>
-<li>computed��watch����<blockquote>
-<p>computed����ɵĹ��ܣ�watch�������<br>    1. watch����������첽���� setTimeout<br>    2. ��vue�����ĺ������������ͨ����������this��ָ�����ʵ��������<br>    3. ����vue�����ĺ�������ʱ����ajax�ص������д�ɼ�ͷ����������this��ָ��ʵ��������</p>
+<li>computed与watch区别：<blockquote>
+<p>computed能完成的功能，watch都能完成<br>    1. watch还可以完成异步任务 setTimeout<br>    2. 被vue管理的函数，最好是普通函数，这样this的指向才是实例化对象<br>    3. 不被vue管理的函数（定时器，ajax回调）最好写成箭头函数，这样this才指向实例化对象</p>
 </blockquote>
 </li>
 </ol>
-<p>##11. ��class��ʽ��</p>
+<p>##11. 绑定class样式：</p>
 <ol>
-<li>�ַ���д����  ȷ������ʽ����д<br>��ȷ������ʽ  <code>:class=&#39; mood &#39;</code><br>�����ڣ���ʽ��������ȷ������Ҫ��ָ̬��</li>
-<li>����д���� <code>:class=&#39; classarr &#39; </code><br>�����ڣ���Ҫ�󶨵���ʽ������ȷ��������Ҳ��ȷ��</li>
-<li>����д����<br>�����ڣ�Ҫ�󶨵���ʽ����ȷ��������ȷ������Ҫ��ָ̬���ò���</li>
+<li>字符串写法：  确定的样式正常写<br>不确定的样式  <code>:class=&#39; mood &#39;</code><br>适用于：样式的类名不确定，需要动态指定</li>
+<li>数组写法： <code>:class=&#39; classarr &#39; </code><br>适用于：需要绑定的样式个数不确定，名字也不确定</li>
+<li>对象写法：<br>适用于：要绑定的样式个数确定，名字确定，但要动态指定用不用</li>
 </ol>
-<p>##12. ��style��ʽ��</p>
+<p>##12. 绑定style样式：</p>
 <ol>
-<li><code>:style=&#39; &#123; fontSize����40px��&#125; &#39;</code></li>
-<li><code>:style=&quot; [a,b]&quot;</code> ����a,b��Ϊ��ʽ����</li>
+<li><code>:style=&#39; &#123; fontSize：“40px”&#125; &#39;</code></li>
+<li><code>:style=&quot; [a,b]&quot;</code> 其中a,b均为样式对象</li>
 </ol>
-<p>##13. ������Ⱦ��</p>
+<p>##13. 条件渲染：</p>
 <ol>
-<li><em>V-show</em>&#x3D;�� �� �任Ƶ��ʹ��<br>  ԭ����display:none<br>  ����ֱ�ӵ��ڲ���ֵ��Ҳ�����Ǳ���ʽ�����ݱ���ʽ�Ľ�����ز���ֵ)</li>
+<li><em>V-show</em>&#x3D;“ ” 变换频繁使用<br>  原理：display:none<br>  可以直接等于布尔值，也可以是表达式（根据表达式的结果返回布尔值)</li>
 <li><em>v-if</em>&#x3D;” “</li>
 </ol>
 <ul>
-<li>ԭ����ֱ��ɾ��������dom</li>
-<li>V-else-if  ��ִ�����һ��if֮����ִ��else����</li>
-<li>V-else: ����Ҫ��д������д��Ҳû���κ�����</li>
+<li>原理：直接删除或添加dom</li>
+<li>V-else-if  在执行完第一个if之后不再执行else内容</li>
+<li>V-else: 不需要再写条件，写了也没有任何作用</li>
 </ul>
-<p>##14. �б���Ⱦ��</p>
+<p>##14. 列表渲染：</p>
 <ol>
-<li>�б�����  <code>indexof(&quot;&quot;)===0; </code>  <code> fillter</code></li>
-<li>�б���Ⱦ</li>
-<li>�б�����</li>
+<li>列表过滤  <code>indexof(&quot;&quot;)===0; </code>  <code> fillter</code></li>
+<li>列表渲染</li>
+<li>列表排序</li>
 </ol>
-<p>##15. �������ڣ��������ڹ��ӣ���</p>
+<p>##15. 生命周期（生命周期钩子）：</p>
 <ol>
-<li>���õ��������ڹ��ӣ�<blockquote>
+<li>常用的生命周期钩子：<blockquote>
 <ol>
-<li>mounted������ajax����������ʱ�������Զ����¼���������Ϣ�ȡ���ʼ��������</li>
-<li>beforeDestroy�������ʱ��������Զ����¼���ȡ��������Ϣ�ȡ���β������</li>
+<li>mounted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】</li>
+<li>beforeDestroy：清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】</li>
 </ol>
 </blockquote>
 </li>
-<li>����vue��<blockquote>
-<p>���ٺ����vue�������߿������κ���Ϣ<br>���ٺ��Զ����¼���ʧЧ����ԭ��dom�¼���Ȼ��Ч<br>һ�㲻����beforeDestroy�������ݣ���Ϊ����������ݣ�Ҳ�����ٴ�������������</p>
+<li>销毁vue：<blockquote>
+<p>销毁后借助vue开发工具看不到任何消息<br>销毁后自定义事件会失效，但原生dom事件依然有效<br>一般不会再beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了</p>
 </blockquote>
 </li>
 </ol>
-<p>##16. �����ʵ��Ӧ���оֲ����ܴ������Դ�ļ���</p>
+<p>##16. 组件：实现应用中局部功能代码和资源的集合</p>
 <ol>
-<li>��ͳ��ʽ��������ϵ���ң�����ά�������븴���ʲ���   ��������ñ��롢����Ŀ���롢�������Ч��</li>
-<li>ģ�黯�������</li>
-<li>������裺</li>
+<li>传统方式：依赖关系混乱，不好维护。代码复用率不高   组件：复用编码、简化项目编码、提高运行效率</li>
+<li>模块化、组件化</li>
+<li>组件步骤：</li>
 </ol>
 <ul>
-<li>�������: const  a &#x3D; Vue.extend( { } )</li>
-<li>ע��������ֲ�ע�᣺compnents:{ h:a }�ڲ�ʹ�ü�ֵ�� </li>
-<li>ȫ��ע�᣺Vue.component ( ‘ ‘ , )</li>
-<li>��д�����ǩ<ol start="4">
-<li>���Ƕ�ף�components{}</li>
-<li>������ʣ����캯��</li>
-<li>���ļ������app.vue��index.html��main.js</li>
-<li>�����ֵ</li>
+<li>创建组件: const  a &#x3D; Vue.extend( { } )</li>
+<li>注册组件：局部注册：compnents:{ h:a }内部使用键值对 </li>
+<li>全局注册：Vue.component ( ‘ ‘ , )</li>
+<li>编写组件标签<ol start="4">
+<li>组件嵌套：components{}</li>
+<li>组件本质：构造函数</li>
+<li>单文件组件：app.vue、index.html、main.js</li>
+<li>组件传值</li>
 </ol>
 <ul>
-<li>�Ӵ���props��<br>ֻ���ܣ�<code>props:[ &quot; name &quot; ] </code><br>�������ͣ�<code>props:&#123;   age:Number&#125;</code><br>��������+���Ʊ�Ҫ��+ָ��Ĭ��ֵ��<br>  <code>props:&#123;   name:&#123; type:String, //���� required:true, //��Ҫ�� default:&#39; &#39;//Ĭ��ֵ   &#125;</code><br>}</li>
+<li>子传父props：<br>只接受：<code>props:[ &quot; name &quot; ] </code><br>限制类型：<code>props:&#123;   age:Number&#125;</code><br>限制类型+限制必要性+指定默认值：<br>  <code>props:&#123;   name:&#123; type:String, //类型 required:true, //必要性 default:&#39; &#39;//默认值   &#125;</code><br>}</li>
 </ul>
 </li>
 </ul>
-<p>##17. ���ּܣ�</p>
+<p>##17. 脚手架：</p>
 <ol>
-<li>��Ŀ�ṹ��</li>
+<li>项目结构：</li>
 </ol>
 <ul>
-<li>favicon.ico:��վҳǩͼ��</li>
-<li>index.html��html�ļ�</li>
-<li>src&#x2F;assets����ž�̬��Դ</li>
-<li>components������������</li>
-<li>App.vue:��������ĸ����</li>
-<li>main.ji����������</li>
-<li>.gitignore:�������git�������ļ�</li>
+<li>favicon.ico:网站页签图标</li>
+<li>index.html：html文件</li>
+<li>src&#x2F;assets：存放静态资源</li>
+<li>components：存放所有组件</li>
+<li>App.vue:所有组件的父组件</li>
+<li>main.ji：首先运行</li>
+<li>.gitignore:不想接受git管理的文件</li>
 </ul>
 <ol start="2">
-<li>vue.js��vue.runtime.xxx.js������</li>
+<li>vue.js与vue.runtime.xxx.js的区别：</li>
 </ol>
 <ul>
-<li>vue.js���������vue���������Ĺ���+ģ�������</li>
-<li>vue.runtime.xxx.js�����а��vue��ֻ�������Ĺ��ܣ�û��ģ�������<br>&lt;!��more–&gt;</li>
+<li>vue.js是完整版的vue，包含核心功能+模板解析器</li>
+<li>vue.runtime.xxx.js是运行版的vue，只包含核心功能，没有模板解析器<span id="more"></span></li>
 </ul>
 
       
