@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>my-first-blog | Hexo</title>
+  <title>myFirstBlog | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="vue1. 一套用于搭建用户界面的渐进式js框架2. 特点： 采用组件化模式，提高代码复用率，更好维护 声明式编码，提高开发效率  虚拟dom+diff算法，复用dom节点 diff算法：只能平级比较，通过比较key值，若Key值相同比较后面的内容，若不同则向下比较  3. 属性–容器与vue实例一一对应 el：用于指定当前为特定容器服务的vue实例，value为字符串 或者 document.g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my-first-blog">
-<meta property="og:url" content="http://example.com/2023/03/27/my-first-blog/index.html">
+<meta property="og:title" content="myFirstBlog">
+<meta property="og:url" content="http://example.com/2023/03/27/myFirstBlog/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="vue1. 一套用于搭建用户界面的渐进式js框架2. 特点： 采用组件化模式，提高代码复用率，更好维护 声明式编码，提高开发效率  虚拟dom+diff算法，复用dom节点 diff算法：只能平级比较，通过比较key值，若Key值相同比较后面的内容，若不同则向下比较  3. 属性–容器与vue实例一一对应 el：用于指定当前为特定容器服务的vue实例，value为字符串 或者 document.g">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-27T00:30:05.000Z">
-<meta property="article:modified_time" content="2023-03-27T00:37:20.433Z">
+<meta property="article:published_time" content="2023-03-27T13:20:34.000Z">
+<meta property="article:modified_time" content="2023-03-27T13:21:31.342Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -73,10 +73,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-my-first-blog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-myFirstBlog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/03/27/my-first-blog/" class="article-date">
-  <time class="dt-published" datetime="2023-03-27T00:30:05.000Z" itemprop="datePublished">2023-03-27</time>
+    <a href="/2023/03/27/myFirstBlog/" class="article-date">
+  <time class="dt-published" datetime="2023-03-27T13:20:34.000Z" itemprop="datePublished">2023-03-27</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      my-first-blog
+      myFirstBlog
     </h1>
   
 
@@ -105,22 +105,17 @@
 <li>el：用于指定当前为特定容器服务的vue实例，value为字符串 或者 document.getElement…也可以</li>
 <li>v.$mount指定容器<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>( )=&gt;&#123;</span><br><span class="line">v.$mount(<span class="string">&#x27;#root&#x27;</span>),<span class="number">1000</span>&#125;<span class="string">`//在1秒后为 id是root的容器绑定v</span></span><br></pre></td></tr></table></figure></li>
 <li>data：写一个对象，用于存储数据，供el所指定的容器去使用<ul>
-<li><p>插值语法：{ { key } }，key必须为js里的表达式（会有返回值 a、a+b、fn(2)..）<br>往往用于指定标签体内容,可以读取data属性b</p>
-</li>
-<li><p>指令语法：</p>
-<ul>
-<li>v-bind绑定<br><code>&lt;a v-bind:herf=&#39; url &#39;&gt;</code> 执行表达式，将结果绑定给herf<br>简写： v-bind &#x3D;&#x3D;&#x3D;&#x3D;  :<br><code>&lt;a : herf=&#39; url &#39;&gt;</code><br>用于解析标签（标签属性、内容、绑定事件…）</li>
+<li>插值语法：{ { key } }，key必须为js里的表达式（会有返回值 a、a+b、fn(2)..）<br>往往用于指定标签体内容,可以读取data属性b</li>
+<li>指令语法：<ul>
+<li>v-bind绑定<br><code>&lt;a v-bind:herf=&#39; url &#39;&gt;</code> 执行表达式，将结果绑定给herf<br>简写： v-bind &#x3D;&#x3D;&#x3D;&#x3D;  <strong>:</strong><br><code>&lt;a : herf=&#39; url &#39;&gt;</code><br>用于解析标签（标签属性、内容、绑定事件…）</li>
 </ul>
 </li>
-<li><p>data写法–&gt;对象式&amp;函数式：</p>
-<ul>
+<li>data写法–&gt;对象式&amp;函数式：<ul>
 <li>对象式：<br><code>data:&#123; name:ah&#125;</code></li>
-<li>函数式：<br>&#96;data:function(){</li>
+<li>函数式：<br><code>data:function()&#123; return &#123;name:ah &#125; &#125; </code> 此处运用<strong>箭头函数，则this指向window</strong>，普通实例函数指向实例对象</li>
 </ul>
-<p>return {name:ah }</p>
 </li>
 </ul>
-<p>} &#96; 此处运用<strong>箭头函数，则this指向window</strong>，普通实例函数指向实例对象</p>
 </li>
 </ul>
 <h2 id="4-单向绑定与双向绑定："><a href="#4-单向绑定与双向绑定：" class="headerlink" title="4. 单向绑定与双向绑定："></a>4. 单向绑定与双向绑定：</h2><ol>
@@ -144,12 +139,28 @@
 <li>methods中配置的函数，不要用箭头函数，否则this就不是vm了</li>
 <li>简写： @click &#x3D; ‘ 函数名 ‘</li>
 <li>参数传递：在函数名后面添加小括号<br><code>@click = &#39; showInfo ($event,6) &#39; methods:&#123;  showInfo ( event , number )  &#125;</code><br> 其中event默认就有 –&gt; <code>@click=&#39;xxx&#39;  == @click=&#39;xxx($event)&#39;</code></li>
-<li>事件修饰符：<br>* .prevent  阻止默认事件 &#x3D;&#x3D;  e.prenventDefult( )<br>* .stop  阻止事件冒泡   &#x3D;&#x3D;  e.stoppp  先捕获后冒泡<br>* .once 事件只触发一次<br>* .capture  先使用事件的捕获模式<br>* .self  只有e.target是当前操作元素才触发事件<br>* .passive  事件的默认行为立即执行，无需等待事件回调执行完毕</li>
-<li>键盘事件： <blockquote>
-<p>回车 &#x3D;&gt; enter<br> 删除 &#x3D;&gt; delete<br> 退出 &#x3D;&gt; esc<br> 空格 &#x3D;&gt; spcae<br> 换行 &#x3D;&gt; tab<br> 上下左右 &#x3D;&gt; up down left right<br>vue.config.keycodes自定义键名</p>
-</blockquote>
-</li>
+<li>事件修饰符：</li>
 </ol>
+<ul>
+<li>.prevent  阻止默认事件 &#x3D;&#x3D;  e.prenventDefult( )</li>
+<li>.stop  阻止事件冒泡   &#x3D;&#x3D;  e.stoppp  先捕获后冒泡</li>
+<li>.once 事件只触发一次</li>
+<li>.capture  先使用事件的捕获模式</li>
+<li>.self  只有e.target是当前操作元素才触发事件</li>
+<li>.passive  事件的默认行为立即执行，无需等待事件回调执行完毕</li>
+</ul>
+<ol start="7">
+<li>键盘事件：</li>
+</ol>
+<ul>
+<li>回车 &#x3D;&gt; enter</li>
+<li>删除 &#x3D;&gt; delete</li>
+<li>退出 &#x3D;&gt; esc</li>
+<li>空格 &#x3D;&gt; spcae</li>
+<li>换行 &#x3D;&gt; tab</li>
+<li>上下左右 &#x3D;&gt; up down left right</li>
+<li>vue.config.keycodes自定义键名</li>
+</ul>
 <h2 id="8-常用指令"><a href="#8-常用指令" class="headerlink" title="8. 常用指令"></a>8. 常用指令</h2><ol>
 <li><em>v-text</em>:设置标签的内容–&gt;内容绑定<br>默认写法会替换全部内容（使用插值表达式{ }可以替换指定内容）<br>只会解析成文本</li>
 <li><em>v-html</em>：设置元素的innerHtml–&gt;内容绑定<br>可以识别标签</li>
@@ -170,19 +181,31 @@
 <h2 id="10-监视属性-watch"><a href="#10-监视属性-watch" class="headerlink" title="10. 监视属性 watch"></a>10. 监视属性 watch</h2><ol>
 <li>当监视的属性变化时，回调函数自动调用</li>
 <li>书写方式：<br>watch:{ }<br>或者 <code>vm.$watch ( &#39;key&#39; ,&#123;  &#125; )</code></li>
-<li>回调函数：<blockquote>
-<p>handler( newvalue,oldvalue)<br>当检测的属性值发生改变时调用<br>Immediate: 默认为false 初始化时默认handler不被调用</p>
-</blockquote>
-</li>
-<li>深度监视：<blockquote>
-<p>监视多级结构中某个属性的变化：  <code>&quot; number.a &quot;</code><br>监视多级结构中所有属性的变化：<code>Deep: true</code></p>
-</blockquote>
-</li>
-<li>computed与watch区别：<blockquote>
-<p>computed能完成的功能，watch都能完成<br>    1. watch还可以完成异步任务 setTimeout<br>    2. 被vue管理的函数，最好是普通函数，这样this的指向才是实例化对象<br>    3. 不被vue管理的函数（定时器，ajax回调）最好写成箭头函数，这样this才指向实例化对象</p>
-</blockquote>
-</li>
+<li>回调函数：</li>
 </ol>
+<ul>
+<li>handler( newvalue,oldvalue)</li>
+<li>当检测的属性值发生改变时调用</li>
+<li>Immediate: 默认为false 初始化时默认handler不被调用</li>
+</ul>
+<ol start="4">
+<li>深度监视：</li>
+</ol>
+<ul>
+<li>监视多级结构中某个属性的变化：  <code>&quot; number.a &quot;</code></li>
+<li>监视多级结构中所有属性的变化：<code>Deep: true</code></li>
+</ul>
+<ol start="5">
+<li>computed与watch区别：</li>
+</ol>
+<ul>
+<li>computed能完成的功能，watch都能完成<ol>
+<li>watch还可以完成异步任务 setTimeout</li>
+<li>被vue管理的函数，最好是普通函数，这样this的指向才是实例化对象</li>
+<li>不被vue管理的函数（定时器，ajax回调）最好写成箭头函数，这样this才指向实例化对象</li>
+</ol>
+</li>
+</ul>
 <h2 id="11-绑定class样式："><a href="#11-绑定class样式：" class="headerlink" title="11. 绑定class样式："></a>11. 绑定class样式：</h2><ol>
 <li>字符串写法：  确定的样式正常写<br>不确定的样式  <code>:class=&#39; mood &#39;</code><br>适用于：样式的类名不确定，需要动态指定</li>
 <li>数组写法： <code>:class=&#39; classarr &#39; </code><br>适用于：需要绑定的样式个数不确定，名字也不确定</li>
@@ -207,18 +230,16 @@
 <li>列表排序</li>
 </ol>
 <h2 id="15-生命周期（生命周期钩子）："><a href="#15-生命周期（生命周期钩子）：" class="headerlink" title="15. 生命周期（生命周期钩子）："></a>15. 生命周期（生命周期钩子）：</h2><ol>
-<li>常用的生命周期钩子：<blockquote>
-<ol>
-<li>mounted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】</li>
-<li>beforeDestroy：清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】</li>
+<li>常用的生命周期钩子：</li>
+<li>mounted：发送ajax请求、启动定时器、绑定自定义事件、订阅消息等<em>初始化操作</em></li>
+<li>beforeDestroy：清除定时器、解绑自定义事件、取消订阅消息等<em>收尾工作</em></li>
+<li>销毁vue：</li>
 </ol>
-</blockquote>
-</li>
-<li>销毁vue：<blockquote>
-<p>销毁后借助vue开发工具看不到任何消息<br>销毁后自定义事件会失效，但原生dom事件依然有效<br>一般不会再beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了</p>
-</blockquote>
-</li>
-</ol>
+<ul>
+<li>销毁后借助vue开发工具看不到任何消息</li>
+<li>销毁后自定义事件会失效，但原生dom事件依然有效</li>
+<li>一般不会再beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了</li>
+</ul>
 <h2 id="16-组件：实现应用中局部功能代码和资源的集合"><a href="#16-组件：实现应用中局部功能代码和资源的集合" class="headerlink" title="16. 组件：实现应用中局部功能代码和资源的集合"></a>16. 组件：实现应用中局部功能代码和资源的集合</h2><ol>
 <li>传统方式：依赖关系混乱，不好维护。代码复用率不高   组件：复用编码、简化项目编码、提高运行效率</li>
 <li>模块化、组件化</li>
@@ -228,14 +249,14 @@
 <li>创建组件: const  a &#x3D; Vue.extend( { } )</li>
 <li>注册组件：局部注册：compnents:{ h:a }内部使用键值对 </li>
 <li>全局注册：Vue.component ( ‘ ‘ , )</li>
-<li>编写组件标签<ol start="4">
+<li>编写组件标签<ol>
 <li>组件嵌套：components{}</li>
 <li>组件本质：构造函数</li>
 <li>单文件组件：app.vue、index.html、main.js</li>
 <li>组件传值</li>
 </ol>
 <ul>
-<li>子传父props：<br>只接受：<code>props:[ &quot; name &quot; ] </code><br>限制类型：<code>props:&#123;   age:Number&#125;</code><br>限制类型+限制必要性+指定默认值：<br>  <code>props:&#123;   name:&#123; type:String, //类型 required:true, //必要性 default:&#39; &#39;//默认值   &#125;</code><br>}</li>
+<li>子传父props：<br><strong>只接收</strong>：<code>props:[ &quot; name &quot; ] </code><br><strong>限制类型</strong>：<code>props:&#123;   age:Number&#125;</code><br><strong>限制类型+限制必要性+指定默认值</strong>：<br>  <code>props:&#123;   name:&#123; type:String, //类型 required:true, //必要性 default:&#39; &#39;//默认值   &#125;</code><br>}</li>
 </ul>
 </li>
 </ul>
@@ -262,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/27/my-first-blog/" data-id="clfq34pah0000t0gld7sld84z" data-title="my-first-blog" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/27/myFirstBlog/" data-id="clfqv50yd0000icgl6oyxbeww" data-title="myFirstBlog" class="article-share-link">Share</a>
       
       
       
@@ -272,19 +293,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/03/27/~$-first-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/03/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/03/27/~$-first-blog/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title"></div>
     </a>
   
 </nav>
@@ -322,11 +334,11 @@
       <ul>
         
           <li>
-            <a href="/2023/03/27/~$-first-blog/">(no title)</a>
+            <a href="/2023/03/27/myFirstBlog/">myFirstBlog</a>
           </li>
         
           <li>
-            <a href="/2023/03/27/my-first-blog/">my-first-blog</a>
+            <a href="/2023/03/27/~$-first-blog/">(no title)</a>
           </li>
         
           <li>
