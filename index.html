@@ -71,6 +71,241 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-myThirdBlog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/26/myThirdBlog/" class="article-date">
+  <time class="dt-published" datetime="2023-04-26T12:14:42.000Z" itemprop="datePublished">2023-04-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/04/26/myThirdBlog/">myThirdBlog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>##原型链</p>
+<ol>
+<li>函数有一个属性——prototype。每个函数都有一个属性叫做prototype。<br>  这个prototype的属性值是一个对象（属性的集合），默认的只有一个叫做constructor的属性，指向这个函数本身。  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Fn</span>(<span class="params"></span>) &#123; &#125;</span><br><span class="line">        <span class="title class_">Fn</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">name</span> = <span class="string">&#x27;张三&#x27;</span>;</span><br><span class="line">        <span class="title class_">Fn</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">getYear</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1988</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="title class_">Fn</span>();</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(fn.<span class="property">name</span>);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(fn.<span class="title function_">getYear</span>());</span><br></pre></td></tr></table></figure>
+ Fn是一个函数，fn对象是从Fn函数new出来的，这样fn对象就可以调用Fn.prototype中的属性。</li>
+<li>每个对象都有一个__proto__属性，指向创建该对象的函数的prototype。即：<code>fn.__proto__ === Fn.prototype</code><br>这里的”<strong>proto</strong>“成为“隐式原型”</li>
+<li>Object.prototype确实一个特例——它的__proto__指向的是null，切记切记！</li>
+<li>Function也是一个函数，函数是一种对象，也有__proto__属性。既然是函数，那么它一定是被Function创建。所以——Function是被自身创建的。所以它的__proto__指向了自身的Prototype。<br>即：<code>Function.__proto===Function.prototype(foo.__proto__===Function.prototype===Function.__proto__)</code></li>
+<li>Function.prototype指向的对象，它的__proto__也指向Object.   prototype<br>因为Function.prototype指向的对象也是一个普通的被Object创建的对象</li>
+<li><strong>Instanceof</strong>的判断规则是：(A instanceof B)沿着A的__proto__这条线来找，同时沿着B的prototype这条线来找，<strong>如果两条线能找到同一个引用，即同一个对象，那么就返回true。如果找到终点还未重合，则返回false。</strong><br>  访问一个对象的属性时，先在基本属性中查找，如果没有，再沿着__proto__这条链向上找，这就是原型链  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="property">__proto__</span>.<span class="property">__proto__</span> === <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>);<span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Function</span>.<span class="property">__proto__</span> === <span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>);<span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="property">__proto__</span> === <span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>);<span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="property">__proto__</span> === <span class="title class_">Function</span>.<span class="property">__proto__</span>);<span class="comment">//true</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123; &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo <span class="keyword">instanceof</span> <span class="title class_">Function</span>);<span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(foo <span class="keyword">instanceof</span> <span class="title class_">Object</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
+<li>原型的灵活性:对象属性可以随时改动。<br>如果感觉当前缺少要用的方法，可以自己去创建。</li>
+</ol>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
+<li>原型继承</li>
+<li>盗用构造函数</li>
+<li>组合继承</li>
+<li>原型式继承</li>
+<li>寄生式继承<br>javascript中的继承是通过原型链来体现的。</li>
+</ul>
+<h2 id="进程线程-amp-协程"><a href="#进程线程-amp-协程" class="headerlink" title="进程线程&amp;协程"></a>进程线程&amp;协程</h2><ol>
+<li>进程：</li>
+</ol>
+<ul>
+<li>计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位（cpu资源分配的最小单位）。</li>
+<li>会在内存空间里形成一个独立的内存体</li>
+<li>状态：就绪、运行、阻塞</li>
+</ul>
+<ol start="2">
+<li>线程：</li>
+</ol>
+<ul>
+<li>cpu资源调度的最小单位，被包含在进程之中，有单线程和多线程。</li>
+</ul>
+<ol start="3">
+<li>一个进程可以包含多个线程，每条线程执行不同的任务，但可以共享资源完成任务<strong>提高了资源使用效率以及系统效率</strong></li>
+</ol>
+<ul>
+<li>状态：就绪、运行、阻塞</li>
+</ul>
+<ol start="4">
+<li>对比：</li>
+</ol>
+<ul>
+<li>进程是<em>操作系统资源分配</em>的基本单位，而线程是<em>任务调度和执行</em>的基本单位</li>
+<li>进程拥有独立的内存空间，线程则共享所在进程中的内存空间</li>
+<li>进程之间切换开销较大，而线程间切换开销较小</li>
+</ul>
+<ol start="5">
+<li>协程：</li>
+</ol>
+<ul>
+<li>比线程更小，由用户管理控制，多个协程可以运行在一个线程上面</li>
+</ul>
+<h2 id="并发-amp-并行"><a href="#并发-amp-并行" class="headerlink" title="并发&amp;并行"></a>并发&amp;并行</h2><ul>
+<li>并发的关键是你有处理多个任务的能力，不一定要同时。并行的关键是你有同时处理多个任务的能力。所以最关键的点就是：是否是 <strong>同时</strong></li>
+</ul>
+<ol>
+<li>并发：在某一时间段，几个程序在同一cpu上运行，但在任意一个时间点，只有一个程序在cpu运行</li>
+<li>并行：两线程同时进行</li>
+</ol>
+<h2 id="同步-amp-异步"><a href="#同步-amp-异步" class="headerlink" title="同步&amp;异步"></a>同步&amp;异步</h2><ol>
+<li>同步任务：主线程上排队执行的任务，只有前一个任务执行完，才继续执行下一个</li>
+<li>异步任务：不进入主线程而进入任务队列的任务。只有任务队列同时主线程，异步任务才进入主线程执行</li>
+<li>js执行机制：</li>
+</ol>
+<ul>
+<li>首先判断js代码是同步还是异步,同步就进入主线程,异步就进入event table</li>
+<li>异步任务在event table中注册函数,当满足触发条件后,被推入event queue</li>
+<li>同步任务进入主线程后一直执行,直到主线程空闲时,才会去event queue中查看是否有可执行的异步任务,如果有就推入主进程中</li>
+</ul>
+<h5 id="常见异步操作："><a href="#常见异步操作：" class="headerlink" title="常见异步操作："></a>常见异步操作：</h5><ol>
+<li>回调函数</li>
+</ol>
+<ul>
+<li>同步回调，比如数组的一些方法(pop、unshift…)会立即执行完全执行完了才结束，不会放入回调队列中</li>
+<li>异步回调，不会立即执行，放入回调队列来执行</li>
+</ul>
+<ol start="2">
+<li>事件监听<br>满足事件发生的条件才执行</li>
+<li>发布订阅模式</li>
+<li>promises对象</li>
+</ol>
+<ul>
+<li>Promise是一个构造函数,用来封装一个异步操作并可以获得异步执行结果</li>
+<li>Promise的参数是一个回调函数(同步),返回值为仍Promise对象</li>
+<li>Promise对象必须实现then方法，而且then必须返回一个Promise对象，同一个Promise对象的then可以调用多次，并且回调的执行顺序跟它们被定义时的顺序一致</li>
+<li>then方法接受两个参数，第一个参数是成功时的回调(异步)，在promise由“等待”态转换到“完成”态时调用，另一个是失败时的回调(异步)</li>
+</ul>
+<ol start="5">
+<li>Generator函数</li>
+<li>async&#x2F;await</li>
+</ol>
+<ul>
+<li>async是用来声明一个异步方法,await用来等待异步方法的执行</li>
+<li>正常情况下await后边是一个Promise对象,返回该对象的结果。如果不是Promise对象,直接返回封装好的promise。await都会阻塞函数中后边的代码（即加入微队列）</li>
+</ul>
+<h4 id="宏任务-amp-微任务"><a href="#宏任务-amp-微任务" class="headerlink" title="宏任务&amp;微任务"></a>宏任务&amp;微任务</h4><ol>
+<li>宏任务：setTimeout、setInterval、I&#x2F;O…</li>
+<li>微任务：promise</li>
+<li>promise：异步的容器</li>
+</ol>
+<ul>
+<li>三种状态：pending fullilled rejected 具有固化性 变为成功就不会在执行rejected函数</li>
+<li><strong>同步代码优先执行，再执行异步代码</strong> <em>promise内部的为同步</em> 只有then中的成功和失败函数才是异步任务。异步任务放在异步队列中。微任务与异步任务相比 微任务先执行</li>
+</ul>
+<h2 id="作用域和上下文"><a href="#作用域和上下文" class="headerlink" title="作用域和上下文"></a>作用域和上下文</h2><ol>
+<li>函数在<strong>定义的时候（不是调用的时候）</strong>，就已经确定了函数体内部自由变量的作用域,**if和for没有块级作用域(let和const可以形成)**，只有函数作用域。</li>
+<li>一共有三种方式可以形成作用域，全局、函数、块。全局作用域在运行时便默认存在，我们可以使用的是函数与块作用域。</li>
+<li>通俗的定义——在执行代码之前，把将要用到的所有的变量都事先拿出来，有的直接赋值了，有的先用undefined占个空。  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a)<span class="comment">//函数创建时就确定了a要取值的作用域</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params">f</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">20</span>;</span><br><span class="line">  <span class="title function_">f</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bar</span>(fn)</span><br></pre></td></tr></table></figure></li>
+<li><table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">普通变量（包括函数表达式），如： var a &#x3D; 10;</td>
+<td align="center">声明（默认赋值为undefined）</td>
+</tr>
+<tr>
+<td align="center">函数声明，如： function fn() { }</td>
+<td align="center">赋值</td>
+</tr>
+<tr>
+<td align="center">this</td>
+<td align="center">赋值</td>
+</tr>
+<tr>
+<td align="center">如果代码段是函数体:</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">A</td>
+<td align="center">B</td>
+</tr>
+<tr>
+<td align="center">:——————:</td>
+<td align="center">:—:</td>
+</tr>
+<tr>
+<td align="center">参数</td>
+<td align="center">赋值</td>
+</tr>
+<tr>
+<td align="center">arguments</td>
+<td align="center">赋值</td>
+</tr>
+<tr>
+<td align="center">自由变量的取值作用域</td>
+<td align="center">赋值</td>
+</tr>
+<tr>
+<td align="center">javascript除了全局作用域之外，只有函数可以创建的作用域。</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ol>
+<li>默认绑定规则：函数独立调用 指向window 与函数位置没有关系 立即执行函数也指向window</li>
+</ol>
+<p>  <code>console.log(this===window)//true</code><br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">        <span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);<span class="comment">//window</span></span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">//3</span></span><br><span class="line">              &#125;</span><br><span class="line">          <span class="title function_">test</span>()</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">obj.<span class="title function_">foo</span>()<span class="comment">//obj</span></span><br></pre></td></tr></table></figure><br>2. 隐式绑定绑定规则：<strong>谁调用指向谁</strong><br>   <strong>隐式丢失</strong>：</p>
+<ul>
+<li>变量赋值 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>: foo</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar = obj.<span class="property">foo</span>;</span><br><span class="line"><span class="title function_">bar</span>();<span class="comment">//window</span></span><br></pre></td></tr></table></figure></li>
+<li>参数赋值<br>父函数有能力决定子函数的this<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="keyword">function</span> (<span class="params">item, index, arr</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);<span class="comment">//window</span></span><br><span class="line">&#125;)</span><br><span class="line">arr.<span class="title function_">sort</span>(<span class="keyword">function</span> (<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);<span class="comment">//window</span></span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">setInterval</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);<span class="comment">//window</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li>显示绑定规则：</li>
+</ol>
+<ul>
+<li>apply<br>传参：bar.apply(obj,[ 1 , 2 , 3 ])</li>
+<li>bind<br>  传参:bar.bind(obj)(1 , 2 , 3 )</li>
+<li>call<br>  传参: bar.call(obj , 1 , 2 , 3)</li>
+<li>obj为1时，this绑定则为Number 而null和undefined没有包装类，this绑定为window</li>
+</ul>
+<ol start="4">
+<li>new绑定：绑定为实例化对象</li>
+<li>优先级：<strong>new&gt;显示绑定&gt;隐式绑定&gt;默认绑定</strong></li>
+<li>箭头函数不使用 this 的四种标准规则，而是根据外层（函数或者全局）作用域来决定 this 。</li>
+</ol>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ol>
+<li>上级作用域内变量的生命周期，因为被下级作用域内引用，而没有被释放。就导致上级作用域内的变量，等到下级作用域执行完以后才正常得到释放</li>
+<li>闭包的作用</li>
+</ol>
+<ul>
+<li>保护：划分一个独立的代码执行区域，在这个区域中有自己私有变量存储的空间，而用到的私有变量和其它区域中的变量不会有任何的冲突（防止全局变量污染）</li>
+<li>保存：如果上下文不被销毁，那么存储的私有变量的值也不会被销毁，可以被其下级上下文中调取使用（延伸变量的作用范围）</li>
+</ul>
+<ol start="3">
+<li>危害</li>
+</ol>
+<ul>
+<li>内存泄漏：闭包产生的变量都会常驻在内存中，对内存的消耗非常大，如果滥用闭包，会造成内存泄漏，降低网页的性能；
+        
+          <p class="article-more-link">
+            <a href="/2023/04/26/myThirdBlog/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/26/myThirdBlog/" data-id="clgxnupp20000bcglesaq7kof" data-title="myThirdBlog" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-mySecondBlog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/04/01/mySecondBlog/" class="article-date">
@@ -470,6 +705,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/04/26/myThirdBlog/">myThirdBlog</a>
+          </li>
         
           <li>
             <a href="/2023/04/01/mySecondBlog/">mySecondBlog</a>
